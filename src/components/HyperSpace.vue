@@ -51,14 +51,12 @@ function getRandom() {
 }
 
 function setSizes() {
-    console.log('I was called')
     state.windowWidth = window.innerWidth;
     state.windowHeight = window.innerHeight;
     
     state.center.x = state.windowWidth / 2;
     state.center.y = state.windowHeight / 2;
 
-    state.canvas = document.getElementById('hs-canvas');
     state.canvas.width = state.windowWidth;
     state.canvas.height = state.windowHeight;
 }
@@ -78,6 +76,7 @@ onMounted(() => {
     setSizes();
     window.addEventListener('resize', debounce(setSizes, 250));
 
+    state.canvas = document.getElementById('hs-canvas');
     state.ctx = state.canvas.getContext('2d');
     
     window.requestAnimationFrame(animateStars);
